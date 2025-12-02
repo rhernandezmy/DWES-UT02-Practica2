@@ -25,13 +25,13 @@ public class HelloBean implements Serializable {
     }
 
     public List<Producto> getProductos() {
-        return /**
+        return 
         List.of(
             new Producto("Manzanas", 2.5),
             new Producto("Peras", 3.0),
             new Producto("Plátanos", 1.8)
         );
- **/ return "holas";   }
+ }
 
     // Clase interna para productos
     public static class Producto {
