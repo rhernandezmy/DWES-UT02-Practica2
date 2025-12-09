@@ -1,26 +1,43 @@
 from django.shortcuts import render
+import json
 
-# Create your views here.
-from django.http import HttpResponse
-
-def usuario_view(request):
-    datos = {
-        "nombre": "Ana",
-        "apellidos": "Martínez Pérez",
-        "edad": 30,
-        "email": "ana@example.com",
+def usuario_pagos(request):
+    usuario_json = """
+    {
+        "nombre": "Laura",
+        "apellidos": "Gómez Pérez",
+        "dni": "12345678A",
+        "email": "laura.gomez@example.com",
+        "telefono": "654321987",
+        "edad": 17,
+        "pagos": {
+            "enero": 20,
+            "febrero": 20,
+            "marzo": 20,
+            "abril": 0,
+            "mayo": 20,
+            "junio": 20,
+            "julio": 20,
+            "agosto": 0,
+            "septiembre": 20,
+            "octubre": 20,
+            "noviembre": 20,
+            "diciembre": 20
+        }
     }
-    html = f"""
-    <html>
-        <head><title>Datos de un Usuario</title></head>
-        <body>
-            <h1>Información personal</h1>
-            <!--Para incluir datos que se encuentran en la vista, usamos llaves como se ve a continuación -->
-            <p><strong>Mi Nombre:</strong> {datos['nombre']}</p>
-            <p><strong>Apellidos:</strong> {datos['apellidos']}</p>
-            <p><strong>Edad:</strong> {datos['edad']}</p>
-            <p><strong>Email:</strong> {datos['email']}</p>
-        </body>
-    </html>
     """
-    return HttpResponse(html)
+    usuario = json.loads(usuario_json)
+    pagos = list(usuario["pagos"].items())
+    total = sum(usuario["pagos"].values())
+    mayor_edad = usuario["edad"] >= 18
+
+    contexto = {
+        "usuario": usuario,
+        "pagos": pagos,
+        "total": total,
+        "mayor_edad": mayor_edad,
+    }
+
+    return render(request, "usuarios/datos_usuario.html", contexto)
+
+

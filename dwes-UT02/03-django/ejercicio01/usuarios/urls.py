@@ -1,7 +1,6 @@
-from django.urls import path, include
-from usuarios.views import usuario_view
-import usuarios.urls
+from django.urls import path
+from . import views
 
 urlpatterns = [
-    path('detalle', usuario_view, name='usuario'),
+    path("usuario/", views.usuario_pagos, name="usuario_pagos"),
 ]

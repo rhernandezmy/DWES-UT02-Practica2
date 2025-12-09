@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Datos del usuario</title>
+
+    <style>
+        body { font-family: Arial; margin: 20px; }
+        .mayor { color: green; font-weight: bold; }
+        .menor { color: red; font-weight: bold; }
+        .pendiente { color: red; font-weight: bold; }
+        .pagado { color: green; font-weight: bold; }
+        table { border-collapse: collapse; width: 50%; }
+        th, td { border: 1px solid #aaa; padding: 6px; }
+    </style>
+</head>
+<body>
+
+    <h1>Datos del usuario</h1>
+
+    <p><strong>Nombre:</strong> {{ usuario.nombre }}</p>
+    <p><strong>Apellidos:</strong> {{ usuario.apellidos }}</p>
+    <p><strong>DNI:</strong> {{ usuario.dni }}</p>
+    <p><strong>Email:</strong> {{ usuario.email }}</p>
+    <p><strong>Teléfono:</strong> {{ usuario.telefono }}</p>
+
+    <p>
+        <strong>Edad:</strong>
+        <span class="{% if mayor_edad %}mayor{% else %}menor{% endif %}">
+            {{ usuario.edad }} años
+        </span>
+    </p>
+
+    <h2>Pagos mensuales</h2>
+
+    <table>
+        <tr>
+            <th>Mes</th>
+            <th>Cantidad</th>
+            <th>Estado</th>
+        </tr>
+
+        {% for mes, cantidad in pagos %}
+        <tr>
+            <td>{{ mes|capfirst }}</td>
+            <td>{{ cantidad }} €</td>
+            <td>
+                {% if cantidad > 0 %}
+                    <span class="pagado">PAGADO</span>
+                {% else %}
+                    <span class="pendiente">PENDIENTE</span>
+                {% endif %}
+            </td>
+        </tr>
+        {% endfor %}
+
+        <tr>
+            <th>Total anual</th>
+            <td colspan="2"><strong>{{ total }} €</strong></td>
+        </tr>
+    </table>
+
+</body>
+</html>

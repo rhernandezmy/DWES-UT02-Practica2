@@ -8,31 +8,101 @@
 <h:head>
     <title>Ejemplo02 usando JSF con Jakarta EE 10</title>
     <meta charset="UTF-8"/>
+    <style>
+        .no-pagado { color:red; font-weight:bold; }
+        .ok { color:green; font-weight:bold; }
+        .error { color:red; font-weight:bold; }
+        table { border-collapse: collapse; margin-bottom: 20px; }
+        td, th { border:1px solid #aaa; padding:6px; }
+    </style>
 </h:head>
 
 <h:body>
     <h1>Hola desde JSF, </h1>
     <h2>Ejercicio ampliado con bucles y condicionales</h2>
 
-    <p>Nombre: <h:outputText value="#{helloBean.nombre}" /></p>
-    <p>Edad: <h:outputText value="#{helloBean.edad}" /></p>
+ <!-- Práctica 2 -->
+    <!-- Recorremos la lista de usuarios -->
+    <ui:repeat value="#{helloBean.usuarios}" var="u">
+        <div class="user-card">
+            <!-- Tabla de datos personales -->
+            <h2>#{u.nombre} #{u.apellidos}</h2>
 
-    <!-- Condicional: solo se muestra si edad > 18 -->
-    <h:panelGroup rendered="#{helloBean.edad gt 18}">
-        <p><b>El usuario es mayor de edad.</b></p>
-    </h:panelGroup>
+            <table class="user-table">
+                <tr>
+                    <th>Nombre</th>
+                    <td>#{u.nombre}</td>
+                    <th>Apellidos</th>
+                    <td>#{u.apellidos}</td>
+                </tr>
+                <tr>
+                    <th>DNI</th>
+                    <td>#{u.dni}</td>
+                    <th>Email</th>
+                    <td>#{u.email}</td>
+                </tr>
+                <tr>
+                    <th>Edad</th>
+                    <td>#{u.edad}</td>
+                    <th></th>
+                    <td></td>
+                </tr>
+            </table>
 
-    <h:panelGroup rendered="#{helloBean.edad le 18}">
-        <p><b>El usuario es menor de edad.</b></p>
-    </h:panelGroup>
- <!-- Práctica 2: 
-        * Añade aquí la sección para mostrar la lista de usuarios.
-        * Comprueba si quieres primero que se muestra uno y después genera a todos.
-        * Estudia como se publican aquí los elementos de un objeto dentro de una clase.
-        * Utiliza la aproximación que prefieras para gestionar el total de pagos del usuario. por ejemplo, 
-          puedes usar un bucle ui:repeat y variables, o crear una función dentro del objeto que calcule el total. 
+            <!-- Tabla de pagos mensuales-->
+            <table class="payments-table">
+                <thead>
+                    <tr>
+                        <th>Mes</th>
+                        <th>Importe</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <ui:repeat value="#{helloBean.meses}" var="mes">
+                        <tr>
+                            <td>#{mes}</td>
+                            <td>
+                                <!-- Si existe importe, lo mostramos -->
+                                <h:panelGroup rendered="#{not empty u.pagos[mes]}">
+                                    <h:outputText value="#{u.pagos[mes]}">
+                                        <f:convertNumber type="currency" currencySymbol="€"/>
+                                    </h:outputText>
+                                </h:panelGroup>
 
-   -->
+                                <!-- Si es null o vacío, mostramos NO PAGADO en rojo -->
+                                <h:outputText value="NO PAGADO" style="color:red;" rendered="#{empty u.pagos[mes]}"/>
+                            </td>
+                        </tr>
+                    </ui:repeat>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <th>Total anual</th>
+                        <td>
+                            <h:outputText value="#{helloBean.totalPagos(u)}">
+                                <f:convertNumber type="currency" currencySymbol="€"/>
+                            </h:outputText>
+                        </td>
+                    </tr>
+                </tfoot>
+            </table>
+
+            <!-- 🔥 CONDICIONAL SEGÚN TOTAL DE PAGOS -->
+            <h:panelGroup rendered="#{helloBean.totalPagos(u) lt 100}">
+                <p style="color:red; font-weight:bold;">
+                    El usuario no está al día con la cuota.
+                </p>
+            </h:panelGroup>
+
+            <h:panelGroup rendered="#{helloBean.totalPagos(u) ge 100}">
+                <p style="color:green; font-weight:bold;">
+                    El usuario está al corriente de pagos.
+                </p>
+            </h:panelGroup>
+
+        </div>
+    </ui:repeat>
+
     <h2>Lista de productos (con bucle ui:repeat):</h2>
     <ul>
         <ui:repeat value="#{helloBean.productos}" var="p">
