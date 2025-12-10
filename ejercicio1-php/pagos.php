@@ -82,6 +82,66 @@ $socios = [
                 "mes" => "Febrero",
                 "importe" => 25.00,
                 "estado" => "Pagado",
+                "fecha_pago" => "2025-02-03"
+            ],
+            "2025-03" => [
+                "mes" => "Marzo",
+                "importe" => 25.00,
+                "estado" => "Pagado",
+                "fecha_pago" => "2025-03-06"
+            ],
+            "2025-04" => [
+                "mes" => "Abril",
+                "importe" => 25.00,
+                "estado" => "Pagado",
+                "fecha_pago" => "2025-04-04"
+            ],
+            "2025-05" => [
+                "mes" => "Mayo",
+                "importe" => 25.00,
+                "estado" => "Pagado",
+                "fecha_pago" => "2025-05-06"
+            ],
+            "2025-06" => [
+                "mes" => "Junio",
+                "importe" => 25.00,
+                "estado" => "Pagado",
+                "fecha_pago" => "2025-06-14"
+            ],
+            "2025-07" => [
+                "mes" => "Julio",
+                "importe" => 25.00,
+                "estado" => "Pagado",
+                "fecha_pago" => "2025-07-12"
+            ],
+            "2025-08" => [
+                "mes" => "Agosto",
+                "importe" => 25.00,
+                "estado" => "Pagado",
+                "fecha_pago" => "2025-08-21"
+            ],
+            "2025-09" => [
+                "mes" => "Septiembre",
+                "importe" => 25.00,
+                "estado" => "Pendiente",
+                "fecha_pago" => null
+            ],
+            "2025-10" => [
+                "mes" => "Octubre",
+                "importe" => 25.00,
+                "estado" => "Pendiente",
+                "fecha_pago" => null
+            ],
+            "2025-11" => [
+                "mes" => "Noviembre",
+                "importe" => 25.00,
+                "estado" => "Pendiente",
+                "fecha_pago" => null
+            ],
+            "2025-12" => [
+                "mes" => "Diciembre",
+                "importe" => 25.00,
+                "estado" => "Pendiente",
                 "fecha_pago" => null
             ]
         ]
@@ -106,13 +166,73 @@ $socios = [
                 "mes" => "Enero",
                 "importe" => 30.00,
                 "estado" => "Pagado",
-                "fecha_pago" => "2025-01-10"
+                "fecha_pago" => "2025-01-01"
             ],
             "2025-02" => [
                 "mes" => "Febrero",
                 "importe" => 30.00,
                 "estado" => "Pagado",
-                "fecha_pago" => "2025-02-08"
+                "fecha_pago" => "2025-02-02"
+            ],
+            "2025-03" => [
+                "mes" => "Marzo",
+                "importe" => 30.00,
+                "estado" => "Pagado",
+                "fecha_pago" => "2025-03-01"
+            ],
+            "2025-04" => [
+                "mes" => "Abril",
+                "importe" => 30.00,
+                "estado" => "Pagado",
+                "fecha_pago" => "2025-04-04"
+            ],
+            "2025-05" => [
+                "mes" => "Mayo",
+                "importe" => 30.00,
+                "estado" => "Pagado",
+                "fecha_pago" => "2025-05-01"
+            ],
+            "2025-06" => [
+                "mes" => "Junio",
+                "importe" => 30.00,
+                "estado" => "Pagado",
+                "fecha_pago" => "2025-05-01"
+            ],
+            "2025-07" => [
+                "mes" => "Julio",
+                "importe" => 30.00,
+                "estado" => "Pagado",
+                "fecha_pago" => "2025-07-04"
+            ],
+            "2025-08" => [
+                "mes" => "Agosto",
+                "importe" => 30.00,
+                "estado" => "Pagado",
+                "fecha_pago" => "2025-08-06"
+            ],
+            "2025-09" => [
+                "mes" => "Septiembre",
+                "importe" => 30.00,
+                "estado" => "Pagado",
+                "fecha_pago" => "2025-09-08"
+            ],
+            "2025-10" => [
+                "mes" => "Octubre",
+                "importe" => 30.00,
+                "estado" => "Pagado",
+                "fecha_pago" => "2025-10-10"
+            ],
+            "2025-11" => [
+                "mes" => "Noviembre",
+                "importe" => 30.00,
+                "estado" => "Pagado",
+                "fecha_pago" => "2025-11-15"
+            ],
+            "2025-12" => [
+                "mes" => "Diciembre",
+                "importe" => 30.00,
+                "estado" => "Pendiente",
+                "fecha_pago" => null
             ]
         ]
     ],
