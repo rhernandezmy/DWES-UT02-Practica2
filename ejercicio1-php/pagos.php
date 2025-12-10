@@ -196,7 +196,7 @@ $socios = [
                 "mes" => "Junio",
                 "importe" => 30.00,
                 "estado" => "Pagado",
-                "fecha_pago" => "2025-05-01"
+                "fecha_pago" => "2025-06-01"
             ],
             "2025-07" => [
                 "mes" => "Julio",
@@ -254,15 +254,75 @@ $socios = [
             */            
             "2025-01" => [
                 "mes" => "Enero",
-                "importe" => 20.00,
+                "importe" => 35.00,
                 "estado" => "Pagado",
-                "fecha_pago" => null
+                "fecha_pago" => "2025-01-01"
             ],
             "2025-02" => [
                 "mes" => "Febrero",
-                "importe" => 20.00,
+                "importe" => 35.00,
                 "estado" => "Pagado",
-                "fecha_pago" => null
+                "fecha_pago" => "2025-02-01"
+            ],
+            "2025-03" => [
+                "mes" => "Marzo",
+                "importe" => 35.00,
+                "estado" => "Pagado",
+                "fecha_pago" => "2025-03-01"
+            ],
+            "2025-04" => [
+                "mes" => "Abril",
+                "importe" => 35.00,
+                "estado" => "Pagado",
+                "fecha_pago" => "2025-04-01"
+            ],
+            "2025-05" => [
+                "mes" => "Mayo",
+                "importe" => 35.00,
+                "estado" => "Pagado",
+                "fecha_pago" => "2025-05-01"
+            ],
+            "2025-06" => [
+                "mes" => "Junio",
+                "importe" => 35.00,
+                "estado" => "Pagado",
+                "fecha_pago" => "2025-06-01"
+            ],
+            "2025-07" => [
+                "mes" => "Julio",
+                "importe" => 35.00,
+                "estado" => "Pagado",
+                "fecha_pago" => "2025-07-01"
+            ],
+            "2025-08" => [
+                "mes" => "Agosto",
+                "importe" => 35.00,
+                "estado" => "Pagado",
+                "fecha_pago" => "2025-08-01"
+            ],
+            "2025-09" => [
+                "mes" => "Septiembre",
+                "importe" => 35.00,
+                "estado" => "Pagado",
+                "fecha_pago" => "2025-09-01"
+            ],
+            "2025-10" => [
+                "mes" => "Octubre",
+                "importe" => 35.00,
+                "estado" => "Pagado",
+                "fecha_pago" => "2025-10-01"
+            ],
+            "2025-11" => [
+                "mes" => "Noviembre",
+                "importe" => 35.00,
+                "estado" => "Pagado",
+                "fecha_pago" => "2025-11-01"
+            ],
+            "2025-12" => [
+                "mes" => "Diciembre",
+                "importe" => 35.00,
+                "estado" => "Pagado",
+                "fecha_pago" => "2025-12-01"
             ]
         ]
     ]
@@ -273,7 +333,7 @@ $socios = [
    =============================================================== */
 
 // Cambiar el índice para mostrar otro socio
-$socio = $socios[2];
+$socio = $socios[1];
 
 // Generamos los 12 meses del año automáticamente
 $year = date("Y");
@@ -313,7 +373,6 @@ $meses = [
 
 <p><strong>Nombre:</strong> <?= $socio["nombre"] . " " . $socio["apellidos"] ?></p>
 <p><strong>DNI:</strong> <?= $socio["dni"] ?></p>
-<p><strong>Dirección:</strong> <?= $socio["direccion"] ?></p>
 <p><strong>Teléfono:</strong> <?= $socio["telefono"] ?></p>
 <p><strong>Email:</strong> <?= $socio["email"] ?></p>
 
@@ -330,6 +389,8 @@ $meses = [
     </tr>
 
     <?php
+    // Tabla de pagos de los 12 meses en curso
+    
     $totalAbonado = 0; // Inicializamos total
 
     for ($i = 1; $i <= 12; $i++) {
