@@ -92,7 +92,9 @@ public class HelloBean implements Serializable {
             List.of(
                 new Producto("Manzanas", 2.5),
                 new Producto("Peras", 3.0),
-                new Producto("Plátanos", 1.8)
+                new Producto("Plátanos", 1.8),
+                new Producto("Naranjas", 6.85),
+                new Producto("Mandarinas", 3.4)
             );
     }
 
