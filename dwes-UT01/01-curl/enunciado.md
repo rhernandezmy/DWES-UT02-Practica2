@@ -17,14 +17,14 @@ El acceso es libre, pero requiere un **token de autenticación** que puedes soli
 1. **Guarda tu token de AEMET** (reemplaza el valor del ejemplo por el tuyo real):
 
    ```bash
-   TOKEN="tu_token_de_aemet_aquí"
+   TOKEN=eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJyaGVybmFuZGV6bXlAZnB2aXJ0dWFsYXJhZ29uLmVzIiwianRpIjoiY2NmYTc0MGItNTcyYS00OGFjLWIwZTQtNmViMzNhMDIzMjc4IiwiaXNzIjoiQUVNRVQiLCJpYXQiOjE3NjY5NDM2NTgsInVzZXJJZCI6ImNjZmE3NDBiLTU3MmEtNDhhYy1iMGU0LTZlYjMzYTAyMzI3OCIsInJvbGUiOiIifQ.i5Oy5tRYytG_RQLvbPI-h5bEGO2f7zW4jkoApI9mt40
    ```
 
 2. **Realiza una petición a la API** para obtener la predicción general de España:
 
    ```bash
    curl -i -H "accept: application/json" \
-        -H "api_key: $TOKEN" \
+        -H "api_key: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJyaGVybmFuZGV6bXlAZnB2aXJ0dWFsYXJhZ29uLmVzIiwianRpIjoiY2NmYTc0MGItNTcyYS00OGFjLWIwZTQtNmViMzNhMDIzMjc4IiwiaXNzIjoiQUVNRVQiLCJpYXQiOjE3NjY5NDM2NTgsInVzZXJJZCI6ImNjZmE3NDBiLTU3MmEtNDhhYy1iMGU0LTZlYjMzYTAyMzI3OCIsInJvbGUiOiIifQ.i5Oy5tRYytG_RQLvbPI-h5bEGO2f7zW4jkoApI9mt40" \
         "https://opendata.aemet.es/opendata/api/prediccion/nacional/hoy"
    ```
 

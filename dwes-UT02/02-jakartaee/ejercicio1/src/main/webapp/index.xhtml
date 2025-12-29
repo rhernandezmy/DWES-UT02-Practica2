@@ -3,27 +3,69 @@
       xmlns:h="jakarta.faces.html"
       xmlns:f="jakarta.faces.core"
       xmlns:ui="jakarta.faces.facelets">
+
 <h:head>
-    <title>Ejemplo JSF con Jakarta EE 10</title>
-    <meta charset="UTF-8"/>
+    <title>Ejemplo JSF — Lista de Usuarios</title>
+    <meta charset="UTF-8" />
 </h:head>
+
 <h:body>
-    <h1>Hola desde JSF, </h1>
-    <p><h2>Este es el primer ejercicio con Jakarta EE</h2></p>
 
-    <p>Nombre: <h:outputText value="#{helloBean.nombre}" /></p>
-    <p>Edad: <h:outputText value="#{helloBean.edad}" /></p>
+    <h1>Ejemplo JSF con Jakarta EE</h1>
+    <h2>Listado de usuarios</h2>
 
-    <h2>Lista de productos:</h2>
-    <h:dataTable value="#{helloBean.productos}" var="p" border="1">
+    <h:dataTable value="#{helloBean.usuarios}" var="u" border="1">
+
         <h:column>
             <f:facet name="header">Nombre</f:facet>
-            <h:outputText value="#{p.nombre}" />
+            #{u.nombre}
         </h:column>
+
+        <h:column>
+            <f:facet name="header">Apellidos</f:facet>
+            #{u.apellidos}
+        </h:column>
+
+        <h:column>
+            <f:facet name="header">DNI</f:facet>
+            #{u.dni}
+        </h:column>
+
+        <h:column>
+            <f:facet name="header">Email</f:facet>
+            #{u.email}
+        </h:column>
+
+        <h:column>
+            <f:facet name="header">Edad</f:facet>
+            #{u.edad}
+        </h:column>
+
+        <h:column>
+            <f:facet name="header">Total Pagos</f:facet>
+            #{helloBean.totalPagos(u)}
+        </h:column>
+
+    </h:dataTable>
+
+    <br/><br/>
+
+    <h2>Lista de productos</h2>
+
+    <h:dataTable value="#{helloBean.productos}" var="p" border="1">
+
+        <h:column>
+            <f:facet name="header">Nombre</f:facet>
+            #{p.nombre}
+        </h:column>
+
         <h:column>
             <f:facet name="header">Precio</f:facet>
-            <h:outputText value="#{p.precio}" />
+            #{p.precio}
         </h:column>
+
     </h:dataTable>
+
 </h:body>
 </html>
+
